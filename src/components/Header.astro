@@ -1,9 +1,13 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <header
     class="mx-auto w-full border-b border-gray-50/0 ease-in-out flex-none sticky top-0 transition-[opacity] z-40"
     id="header"
 >
     <div class="absolute inset-0"></div><div
-        class="relative mx-auto md:px-6 text-default max-w-7xl md:grid md:grid-cols-3 md:items-center px-3 py-3 w-full"
+        class="relative mx-auto md:px-6 text-default max-w-7xl md:grid md:grid-cols-2 md:items-center px-3 py-3 w-full"
     >
         <div class="flex justify-between">
             <a href="/#" class="flex items-center"
@@ -62,5 +66,38 @@
                 >
             </div>
         </div>
+        <div
+            class="items-center md:w-auto w-full hidden md:flex bottom-0 fixed justify-end left-0 md:justify-self-end md:mb-0 md:p-0 md:self-center md:static p-3 rtl:left-auto rtl:right-0"
+        >
+            <div class="flex items-center justify-between md:w-auto w-full">
+                <div class="flex">
+                    <button
+                        aria-label="Toggle between Dark and Light mode"
+                        class="text-muted dark:text-gray-400 dark:focus:ring-gray-700 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 inline-flex items-center p-2.5 rounded-lg text-sm"
+                        type="button"
+                        id="toggleTheme"
+                    >
+                        <Icon
+                            class="h-6 w-6 md:h-5 md:inline-block md:w-5"
+                            name="tabler:sun"
+                        /></button
+                    >
+                </div>
+            </div>
+        </div>
     </div>
 </header>
+
+<script>
+    const toggleThemeButton = document.getElementById("toggleTheme");
+    if (toggleThemeButton !== null) {
+        toggleThemeButton.addEventListener("click", function () {
+            document.documentElement.classList.toggle("dark");
+            localStorage.theme = document.documentElement.classList.contains(
+                "dark",
+            )
+                ? "dark"
+                : "light";
+        });
+    }
+</script>
