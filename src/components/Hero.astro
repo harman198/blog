@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <div class="mb-8 md:mb-16 text-center max-w-3xl mx-auto">
+        <h1
+            class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        >
+            The Blog
+        </h1>
+        {
+            (
+                <>
+                    <div class="mt-2 md:mt-3 mx-auto text-xl text-gray-500 dark:text-slate-400 font-medium">
+                        <p>
+                            Hey! I'm Harman Khangura. Welcome to my blog. The
+                            blog is still in it's early stages but I am
+                            committed to add more content over time. In the
+                            meantime, please feel free to read some of the
+                            content here.
+                        </p>
+                    </div>
+                    <div class="mt-2 md:mt-3 mx-auto text-xl text-gray-500 dark:text-slate-400 font-medium">
+                        <p>
+                            If you have any queries, or suggestions to make this
+                            blog better, please feel free to reach out below.
+                        </p>
+                    </div>
+                    <div class="mt-2 md:mt-3 mx-auto text-xl text-gray-500 dark:text-slate-400 font-medium">
+                        <div class="flex flex-col flex-nowrap gap-4 m-auto max-w-xs sm:flex-row sm:justify-center sm:max-w-md">
+                            <div class="flex w-full sm:w-auto">
+                                <a
+                                    href="https://www.harmankhangura.com/contact"
+                                    class="w-full btn-primary sm:mb-0"
+                                >
+                                    <Icon
+                                        name="tabler:mail"
+                                        class="w-5 h-5 ml-1 mr-1.5 inline-block"
+                                    />
+                                    Contact Here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )
+        }
+    </div>
+</section>
