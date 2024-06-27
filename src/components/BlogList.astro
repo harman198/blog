@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogListItem from "./BlogListItem.astro";
+import { Icon } from "astro-icon/components";
+interface Props {
+    posts: Array<CollectionEntry<"blog">>;
+}
+
+const { posts } = Astro.props;
+---
+
+{
+    posts?.length > 0 ? (
+        <ul>
+            {posts.map((post) => (
+                <li class="mb-12 md:mb-20">
+                    <BlogListItem post={post} />
+                </li>
+            ))}
+        </ul>
+    ) : (
+        <div class="flex justify-center text-xl items-center gap-4">
+            <Icon name="tabler:exclamation-circle" class="" />
+            <p>No blog posts added yet</p>
+        </div>
+    )
+}
