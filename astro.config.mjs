@@ -3,9 +3,12 @@ import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 
 import mdx from "@astrojs/mdx";
+import rehypeSlug from 'rehype-slug';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://blog.harmankhangura.com",
   integrations: [
     tailwind(),
     icon({
@@ -13,6 +16,16 @@ export default defineConfig({
         tabler: ['*']
       }
     }),
-    mdx()
+    mdx({
+      syntaxHighlight: false,
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypePrettyCode,
+          {
+            theme: 'github-dark'
+          }
+        ]
+      ]
+    })
   ]
 });
